@@ -1,7 +1,8 @@
 # Pangasinan Heritage Digital Showcase
 
-**Student Name:** Mhia Macaranas
+# Mhia Macaranas
 **Selected Framework:** React + Next.js 14 App Router
+
 **Live Website:** https://mhia-macaranas.github.io/elective4/
 
 ## Overview
