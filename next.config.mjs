@@ -5,7 +5,7 @@ const nextConfig = {
     unoptimized: true,
   },
   // If deploying to a GitHub Pages subdirectory, uncomment and set basePath
-  // basePath: '/repository-name',
+  basePath: '/elective4',
 };
 
 export default nextConfig;
