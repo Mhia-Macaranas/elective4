@@ -20,10 +20,13 @@ export const Image: React.FC<ImageProps> = ({
   className = '',
   priority = false
 }) => {
+  const basePath = '/elective4';
+  const finalSrc = src.startsWith('/') ? `${basePath}${src}` : src;
+
   return (
     <div className={`relative overflow-hidden ${fill ? 'w-full h-full' : ''} ${className}`}>
       <NextImage
-        src={src}
+        src={finalSrc}
         alt={alt}
         width={!fill ? width : undefined}
         height={!fill ? height : undefined}
