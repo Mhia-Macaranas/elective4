@@ -1,0 +1,37 @@
+import NextImage from 'next/image';
+import React from 'react';
+
+interface ImageProps {
+  src: string;
+  alt: string;
+  width?: number;
+  height?: number;
+  fill?: boolean;
+  className?: string;
+  priority?: boolean;
+}
+
+export const Image: React.FC<ImageProps> = ({ 
+  src, 
+  alt, 
+  width, 
+  height, 
+  fill = false, 
+  className = '',
+  priority = false
+}) => {
+  return (
+    <div className={`relative overflow-hidden ${fill ? 'w-full h-full' : ''} ${className}`}>
+      <NextImage
+        src={src}
+        alt={alt}
+        width={!fill ? width : undefined}
+        height={!fill ? height : undefined}
+        fill={fill}
+        className={`object-cover ${fill ? 'absolute inset-0' : ''}`}
+        priority={priority}
+        sizes={fill ? "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" : undefined}
+      />
+    </div>
+  );
+};
