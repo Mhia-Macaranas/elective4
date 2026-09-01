@@ -4,9 +4,7 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  // If deploying to a GitHub Pages subdirectory, uncomment and set basePath
   basePath: '/elective4',
 };
 
-export default nextConfig;
-
+module.exports = nextConfig;
