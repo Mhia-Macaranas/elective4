@@ -13,7 +13,6 @@ interface HeritageModalProps {
 }
 
 export const HeritageModal: React.FC<HeritageModalProps> = ({ site, isOpen, onClose }) => {
-  // Handle escape key listener
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
@@ -41,83 +40,83 @@ export const HeritageModal: React.FC<HeritageModalProps> = ({ site, isOpen, onCl
     >
       {/* Backdrop */}
       <div 
-        className="fixed inset-0 bg-primary/80 backdrop-blur-md transition-opacity" 
+        className="fixed inset-0 bg-black/70 backdrop-blur-sm transition-opacity" 
         onClick={onClose}
       />
 
       {/* Modal Container */}
-      <div className="relative w-full max-w-3xl bg-surface rounded-2xl shadow-elevated border border-white/40 overflow-hidden z-10 max-h-[90vh] flex flex-col animate-slide-up">
-        {/* Header Image with Gradient */}
-        <div className="relative h-64 sm:h-80 w-full flex-shrink-0">
+      <div className="relative w-full max-w-3xl bg-white rounded-2xl shadow-elevated border border-gray-200 overflow-hidden z-10 max-h-[90vh] flex flex-col animate-slide-up">
+        {/* Header Image with High-Contrast Gradient */}
+        <div className="relative h-64 sm:h-80 w-full flex-shrink-0 bg-primary">
           <Image 
             src={site.image} 
             alt={site.imageAlt} 
             fill 
-            className="brightness-95"
+            className="brightness-95 object-cover"
             sizes="(max-width: 768px) 100vw, 800px"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/30 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
           
           {/* Close Button */}
           <button 
             onClick={onClose}
-            className="absolute top-4 right-4 p-2.5 rounded-full bg-black/40 hover:bg-black/70 text-white backdrop-blur-sm transition-all focus:outline-none focus:ring-2 focus:ring-accent"
+            className="absolute top-4 right-4 p-2.5 rounded-full bg-black/60 hover:bg-black/80 text-white backdrop-blur-sm transition-all focus:outline-none focus:ring-2 focus:ring-accent"
             aria-label="Close dialog"
           >
             <Icon name="close" size={20} />
           </button>
 
-          {/* Badges */}
+          {/* High-Contrast Badges */}
           <div className="absolute top-4 left-4 flex flex-wrap gap-2">
-            <span className="px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-white/90 text-primary backdrop-blur-sm shadow-subtle">
+            <span className="px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-white text-primary shadow-md">
               {site.category}
             </span>
             {site.historicalPeriod && (
-              <span className="px-3 py-1 rounded-full text-xs font-medium bg-accent/90 text-white backdrop-blur-sm shadow-subtle">
+              <span className="px-3 py-1 rounded-full text-xs font-semibold bg-black/75 text-white backdrop-blur-sm shadow-md border border-white/20">
                 {site.historicalPeriod}
               </span>
             )}
           </div>
 
-          {/* Title Overlay */}
+          {/* Title Overlay with Text Shadow */}
           <div className="absolute bottom-6 left-6 right-6 text-white">
-            <div className="flex items-center space-x-1.5 text-accent-light text-xs sm:text-sm font-medium mb-1">
+            <div className="flex items-center space-x-1.5 text-accent-light text-xs sm:text-sm font-semibold mb-1 drop-shadow-sm">
               <Icon name="location" size={16} />
               <span>{site.location}, {site.municipality}</span>
             </div>
-            <Typography variant="h2" id="modal-title" className="!text-white text-2xl sm:text-3xl">
+            <Typography variant="h2" id="modal-title" className="!text-white text-2xl sm:text-3xl font-bold drop-shadow-md">
               {site.name}
             </Typography>
             {site.tagline && (
-              <p className="text-white/80 text-sm italic mt-1 font-display">
+              <p className="text-white/90 text-sm italic mt-1 font-display drop-shadow-sm font-medium">
                 &ldquo;{site.tagline}&rdquo;
               </p>
             )}
           </div>
         </div>
 
-        {/* Modal Body Content */}
-        <div className="p-6 sm:p-8 overflow-y-auto space-y-6 flex-grow">
+        {/* Modal Body Content with Ultra-Crisp Dark Text */}
+        <div className="p-6 sm:p-8 overflow-y-auto space-y-6 flex-grow bg-white">
           {/* Description */}
           <div>
-            <Typography variant="eyebrow" className="mb-2 block text-secondary">
+            <span className="text-xs font-bold uppercase tracking-widest text-secondary block mb-2">
               Heritage & History
-            </Typography>
+            </span>
             <Typography variant="body" className="text-text leading-relaxed text-base">
               {site.description}
             </Typography>
           </div>
 
-          {/* Highlights */}
+          {/* Highlights Checklist */}
           {site.highlights && site.highlights.length > 0 && (
-            <div className="bg-surface-muted/60 p-5 rounded-xl border border-gray-200/60">
-              <Typography variant="small" className="font-semibold text-primary uppercase tracking-wider mb-3 block">
+            <div className="bg-surface-muted p-5 rounded-xl border border-gray-200">
+              <span className="text-xs font-bold text-primary uppercase tracking-wider mb-3 block">
                 Destination Highlights
-              </Typography>
+              </span>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                 {site.highlights.map((highlight, index) => (
-                  <div key={index} className="flex items-center space-x-2 text-sm text-text">
-                    <span className="text-accent flex-shrink-0">
+                  <div key={index} className="flex items-center space-x-2 text-sm text-text font-medium">
+                    <span className="text-secondary flex-shrink-0">
                       <Icon name="check" size={16} />
                     </span>
                     <span>{highlight}</span>
@@ -130,15 +129,15 @@ export const HeritageModal: React.FC<HeritageModalProps> = ({ site, isOpen, onCl
           {/* Practical Info Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 border-t border-gray-100">
             {site.bestTime && (
-              <div className="flex items-start space-x-3 p-3.5 rounded-lg bg-white border border-gray-100 shadow-subtle">
-                <div className="p-2 rounded-md bg-accent-light/50 text-accent flex-shrink-0">
+              <div className="flex items-start space-x-3 p-3.5 rounded-lg bg-surface-muted/50 border border-gray-200">
+                <div className="p-2 rounded-md bg-accent-light text-accent flex-shrink-0">
                   <Icon name="calendar" size={18} />
                 </div>
                 <div>
-                  <span className="text-xs font-semibold uppercase tracking-wider text-text-muted block">
+                  <span className="text-xs font-bold uppercase tracking-wider text-text-muted block">
                     Best Season
                   </span>
-                  <p className="text-sm font-medium text-text mt-0.5">
+                  <p className="text-sm font-semibold text-text mt-0.5">
                     {site.bestTime}
                   </p>
                 </div>
@@ -146,15 +145,15 @@ export const HeritageModal: React.FC<HeritageModalProps> = ({ site, isOpen, onCl
             )}
 
             {site.travelTip && (
-              <div className="flex items-start space-x-3 p-3.5 rounded-lg bg-white border border-gray-100 shadow-subtle">
+              <div className="flex items-start space-x-3 p-3.5 rounded-lg bg-surface-muted/50 border border-gray-200">
                 <div className="p-2 rounded-md bg-secondary-light text-secondary flex-shrink-0">
                   <Icon name="compass" size={18} />
                 </div>
                 <div>
-                  <span className="text-xs font-semibold uppercase tracking-wider text-text-muted block">
+                  <span className="text-xs font-bold uppercase tracking-wider text-text-muted block">
                     Traveler Tip
                   </span>
-                  <p className="text-sm font-medium text-text mt-0.5">
+                  <p className="text-sm font-semibold text-text mt-0.5">
                     {site.travelTip}
                   </p>
                 </div>
@@ -164,13 +163,13 @@ export const HeritageModal: React.FC<HeritageModalProps> = ({ site, isOpen, onCl
         </div>
 
         {/* Footer */}
-        <div className="p-4 sm:px-8 sm:py-4 bg-surface-muted/80 border-t border-gray-200/60 flex items-center justify-between">
-          <span className="text-xs text-text-muted">
+        <div className="p-4 sm:px-8 sm:py-3.5 bg-surface-muted border-t border-gray-200 flex items-center justify-between">
+          <span className="text-xs font-medium text-text-muted">
             Pangasinan Tourism &bull; {site.municipality}
           </span>
           <button
             onClick={onClose}
-            className="px-5 py-2 rounded-lg bg-primary text-white text-sm font-medium hover:bg-primary-light transition-colors"
+            className="px-5 py-1.5 rounded-full bg-primary text-white text-xs font-semibold hover:bg-primary-light transition-colors shadow-sm"
           >
             Close Story
           </button>
@@ -179,4 +178,3 @@ export const HeritageModal: React.FC<HeritageModalProps> = ({ site, isOpen, onCl
     </div>
   );
 };
-

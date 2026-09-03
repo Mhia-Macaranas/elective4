@@ -257,7 +257,7 @@ export default function Home() {
                         sizes="(max-width: 640px) 100vw, 350px"
                       />
                       <div className="absolute top-3 left-3">
-                        <span className="px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-white/90 text-primary backdrop-blur-sm">
+                        <span className="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-white text-primary shadow-sm border border-gray-100">
                           {site.municipality}
                         </span>
                       </div>
@@ -296,7 +296,7 @@ export default function Home() {
               </div>
 
               {/* Floating Fact Card */}
-              <div className="absolute -bottom-5 -right-2 sm:bottom-6 sm:-right-4 glass-card p-4 rounded-xl shadow-card max-w-xs border border-white/80">
+              <div className="absolute -bottom-5 -right-2 sm:bottom-6 sm:-right-4 bg-white p-4 rounded-xl shadow-card max-w-xs border border-gray-200">
                 <div className="flex items-center space-x-3">
                   <div className="p-2 rounded-lg bg-accent-light text-accent">
                     <Icon name="waves" size={20} />
