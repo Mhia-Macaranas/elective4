@@ -179,3 +179,4 @@ export const HeritageModal: React.FC<HeritageModalProps> = ({ site, isOpen, onCl
     </div>
   );
 };
+
