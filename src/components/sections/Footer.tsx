@@ -12,11 +12,8 @@ export const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           {/* Col 1: Brand & Identity */}
           <div className="space-y-4 md:col-span-1">
-            <div className="flex items-center space-x-2.5">
-              <span className="w-8 h-8 rounded-full bg-accent flex items-center justify-center text-primary font-bold font-display text-xs">
-                P
-              </span>
-              <span className="font-display font-bold text-xl tracking-tight text-white">
+            <div className="flex items-center">
+              <span className="font-display font-bold text-2xl tracking-tight text-white">
                 Pangasinan
               </span>
             </div>

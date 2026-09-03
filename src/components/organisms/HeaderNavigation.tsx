@@ -38,19 +38,11 @@ export const HeaderNavigation: React.FC = () => {
             : 'shadow-subtle border-white/70 bg-white/90'
         }`}
       >
-        {/* Brand Logo */}
-        <Link href="/" className="flex items-center space-x-2.5 group">
-          <span className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-accent shadow-subtle group-hover:scale-105 transition-transform duration-200">
-            <span className="font-display font-bold text-xs tracking-tight text-accent">P</span>
+        {/* Brand Text */}
+        <Link href="/" className="group flex items-center">
+          <span className="font-display font-bold text-xl sm:text-2xl tracking-tight text-primary">
+            Pangasinan
           </span>
-          <div className="flex flex-col">
-            <span className="font-display font-bold text-lg sm:text-xl tracking-tight text-primary leading-none">
-              Pangasinan
-            </span>
-            <span className="text-[9px] uppercase tracking-widest text-accent font-semibold leading-none mt-0.5">
-              Heritage Showcase
-            </span>
-          </div>
         </Link>
 
         {/* Desktop Nav Links */}
