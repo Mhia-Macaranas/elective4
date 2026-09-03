@@ -7,13 +7,15 @@ interface TypographyProps {
   children: React.ReactNode;
   className?: string;
   as?: React.ElementType;
+  id?: string;
 }
 
 export const Typography: React.FC<TypographyProps> = ({ 
   variant, 
   children, 
   className = '', 
-  as 
+  as,
+  id 
 }) => {
   const styles = {
     h1: 'font-display text-4xl md:text-5xl lg:text-6xl text-text leading-tight',
@@ -33,7 +35,7 @@ export const Typography: React.FC<TypographyProps> = ({
   ) as React.ElementType;
 
   return (
-    <Component className={`${styles[variant]} ${className}`}>
+    <Component id={id} className={`${styles[variant]} ${className}`}>
       {children}
     </Component>
   );

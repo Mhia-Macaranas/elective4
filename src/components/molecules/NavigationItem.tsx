@@ -1,6 +1,5 @@
 import React from 'react';
 import Link from 'next/link';
-import { Typography } from '../atoms/Typography';
 
 interface NavigationItemProps {
   href: string;
@@ -14,12 +13,13 @@ export const NavigationItem: React.FC<NavigationItemProps> = ({ href, label, isA
     <Link 
       href={href} 
       onClick={onClick}
-      className={`group relative py-2 ${isActive ? 'text-primary font-medium' : 'text-text-muted hover:text-primary transition-colors'}`}
+      className={`relative px-4 py-2 text-sm font-medium rounded-full transition-all duration-200 ${
+        isActive 
+          ? 'text-primary bg-accent-light/60 font-semibold shadow-subtle' 
+          : 'text-text-muted hover:text-primary hover:bg-black/5'
+      }`}
     >
-      <Typography variant="body" className="!text-inherit">
-        {label}
-      </Typography>
-      <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-primary transform origin-left transition-transform duration-300 ${isActive ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}></span>
+      {label}
     </Link>
   );
 };
