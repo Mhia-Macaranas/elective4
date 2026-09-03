@@ -10,6 +10,11 @@ const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-playfa
 export const metadata: Metadata = {
   title: 'Discover Pangasinan | Heritage & Destinations',
   description: 'Explore Pangasinan heritage, culture, tourism, natural attractions, historical landmarks, and destinations.',
+  icons: {
+    icon: [
+      { url: '/elective4/favicon.svg', type: 'image/svg+xml' },
+    ],
+  },
 };
 
 export default function RootLayout({
@@ -19,6 +24,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/elective4/favicon.svg" type="image/svg+xml" />
+        <link rel="icon" href="/elective4/icon.svg" type="image/svg+xml" />
+      </head>
       <body className={`${inter.variable} ${playfair.variable} font-body antialiased flex flex-col min-h-screen`}>
         <HeaderNavigation />
         <main className="flex-grow">
@@ -29,4 +38,3 @@ export default function RootLayout({
     </html>
   );
 }
-

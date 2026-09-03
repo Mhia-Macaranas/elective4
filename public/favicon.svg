@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- Deep botanical emerald rounded square -->
+  <rect width="32" height="32" rx="7" fill="#11251E"/>
+  
+  <!-- Golden sun -->
+  <circle cx="16" cy="11" r="5" fill="#B88E4B"/>
+  
+  <!-- Sea glass marine wave -->
+  <path d="M3 21c2.5-1.5 5.5-1.5 8 0s5.5 1.5 8 0 5.5-1.5 8 0 1.5.5 2 1v7H3v-8z" fill="#2E5E52"/>
+  
+  <!-- White coastal surf wave -->
+  <path d="M3 24c2.5-1.2 5.5-1.2 8 0s5.5 1.2 8 0 5.5-1.2 8 0 1.5.4 2 .8v4.2H3V24z" fill="#FAF8F5"/>
+</svg>
